@@ -11,14 +11,17 @@
 </script>
 
 <template>
-  <headerComp/>
+  <div>
+    <headerComp/>
 
-  <h1 class="text-center">ciao</h1>
+  </div>
+
   
 </template>
 
 <style lang="scss">
   // importo il foglio di stile principale
   @use './style/main.scss' as *;
+
 
 </style>
