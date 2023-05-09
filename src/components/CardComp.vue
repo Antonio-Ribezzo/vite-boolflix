@@ -31,7 +31,7 @@
 <style lang="scss" scoped>
     div{
         width: 15rem;
-        height: 38rem;
+        
         div{
             h2{
                 font-size: 1.3rem;

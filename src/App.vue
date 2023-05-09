@@ -21,6 +21,10 @@
       }
     },
 
+    created(){
+      this.activeApi()
+    },
+
     methods: {
       activeApi(){
         if(store.searchText !== ''){
@@ -28,14 +32,18 @@
           .then((res)=>{
             this.store.arrayFilm = res.data.results
           })
+        } else{
+          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=ebc03a47ce4ef95670ef8345f682ef5b&query=marvel`)
+          .then((res)=>{
+            this.store.arrayFilm = res.data.results
+          })
         }
       }
     }
-
   }
 
 </script>
-
+      
 <template>
   <div>
     <SearchBarComp @search="activeApi"/>
