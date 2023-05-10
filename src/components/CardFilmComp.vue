@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: 'CardComp',
+        name: 'CardFilmComp',
         props: ['infoFilm']
     }
 </script>
@@ -11,6 +11,7 @@
         <img :src="'https://image.tmdb.org/t/p/w300'+ infoFilm.poster_path" class="card-img-top" alt="...">
         <div class="card-body">
             <h2 class="card-title">{{ infoFilm.title }}</h2>
+            <span class="d-block">Film</span>
             <span class="card-text">
                 Titolo originale:
                 <span>{{ infoFilm.original_title }}</span>

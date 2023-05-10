@@ -28,9 +28,16 @@
     methods: {
       activeApi(){
         if(store.searchText !== ''){
+          // chiamata api film
           axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${store.searchText}`)
           .then((res)=>{
             this.store.arrayFilm = res.data.results
+            console.log(res.data.results)
+          })
+          // chiamata api serie tv
+          axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&query=${store.searchText}`)
+          .then((res)=>{
+            this.store.arrayTvSeries = res.data.results
             console.log(res.data.results)
           })
         } else{
