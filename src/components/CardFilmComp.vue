@@ -11,7 +11,7 @@
         <img :src="'https://image.tmdb.org/t/p/w300'+ infoFilm.poster_path" class="card-img-top" alt="...">
         <div class="card-body">
             <h2 class="card-title">{{ infoFilm.title }}</h2>
-            <span class="d-block">Film</span>
+            <span class="d-block text-decoration-underline">Film</span>
             <span class="card-text">
                 Titolo originale:
                 <span>{{ infoFilm.original_title }}</span>
@@ -40,14 +40,68 @@
             </li>
             <li class="list-group-item">
                 <span class="text-capitalize">vote:</span>
-                <span class="ms-2">{{ infoFilm.vote_average }}</span>
+                <!-- stelle -->
+                <div v-if="Math.round(infoFilm.vote_average) > 5" class="d-inline ms-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                    <span class="ms-2">5</span>
+                </div>
+                <div v-if="Math.round(infoFilm.vote_average) === 4" class="d-inline ms-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+
+                    <span class="ms-2">4</span>
+                </div>
+                <div v-if="Math.round(infoFilm.vote_average) === 3" class="d-inline ms-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+
+                    <span class="ms-2">3</span>
+                </div>
+                <div v-if="Math.round(infoFilm.vote_average) === 2" class="d-inline ms-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+
+                    <span class="ms-2">2</span>
+                </div>
+                <div v-if="Math.round(infoFilm.vote_average) === 1" class="d-inline ms-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    
+                    <span class="ms-2">1</span>
+                </div>
+                <div v-if="Math.round(infoFilm.vote_average) === 0" class="d-inline ms-2">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+
+                    <span class="ms-2">0</span>
+                </div>
             </li>
         </ul>
     </div>
 </template>
 
 <style lang="scss" scoped>
-    div{
+    .card{
         width: 18rem;
         background-color: rgba(0, 0, 0, 0.275);
         border: none;

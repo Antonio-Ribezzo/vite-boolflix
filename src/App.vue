@@ -32,18 +32,21 @@
           axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${store.searchText}`)
           .then((res)=>{
             this.store.arrayFilm = res.data.results
-            console.log(res.data.results)
           })
           // chiamata api serie tv
           axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&query=${store.searchText}`)
           .then((res)=>{
-            this.store.arrayTvSeries = res.data.results
-            console.log(res.data.results)
+            this.store.arrayTvSeries =res.data.results
           })
-        } else{
+        }else{
           axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=marvel`)
           .then((res)=>{
             this.store.arrayFilm = res.data.results
+          })
+
+          axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&query=marvel`)
+          .then((res)=>{
+            this.store.arrayTvSeries = res.data.results
           })
         }
       }
@@ -53,7 +56,7 @@
 </script>
       
 <template>
-  <div>
+  <div class="containerApp">
     <!-- comonente search bar -->
     <SearchBarComp @search="activeApi"/>
     <!-- componente main -->
@@ -67,7 +70,8 @@
 <style lang="scss">
   // importo il foglio di stile principale
   @use './style/main.scss' as *;
-  div{
+  
+  .containerApp{
     background-color: orange
   }
 
