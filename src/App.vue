@@ -11,13 +11,21 @@
   export default{
     name: 'App',
     components:{
-            SearchBarComp,
-            MainComp,
-        },
+      SearchBarComp,
+      MainComp,
+    },
 
     data(){
       return{
-        store
+        store,
+        navItem: [
+          'Home',
+          'Serie Tv',
+          'Film',
+          'Nuovi e popolari',
+          'La mia lista',
+          'Sfoglia per lingua'
+        ]
       }
     },
 
@@ -57,8 +65,36 @@
       
 <template>
   <div class="containerApp">
-    <!-- comonente search bar -->
-    <SearchBarComp @search="activeApi"/>
+    <!-- header -->
+    <header>
+      <div id="containerHeader" class="d-flex justify-content-between align-items-center py-2 px-5">
+        <!-- parte sinistra -->
+        <div class="d-flex justify-content-between align-items-center">
+            <img src="/img/logoBoolflix.png" alt="logo-BoolFlix">
+            <!-- navbar -->
+            <nav>
+                <ul class="d-flex justify-content between align-items-center">
+                    <li v-for="(el,i) in navItem" :key="i" class="nav-item">
+                        <a :class="(i == 0)? 'selectedPage' : ''" href="#">{{el}}</a>
+                    </li>
+                </ul>
+            </nav>
+          </div>
+
+        <!-- parte destra -->
+        <div class="d-flex justify-content-between align-items-center text-white">
+          <!-- comonente search bar -->
+          <SearchBarComp @search="activeApi"/>
+          <span class="text-capitalize mx-2">bambini</span>
+          <i class="fa-regular fa-bell mx-2"></i>
+          <img class="mx-2" src="/img/accountNetflix.png" alt="">
+          <i class="fa-solid fa-caret-down mx-2"></i>
+
+
+        </div>
+      </div>
+    </header>
+    
     <!-- componente main -->
     <MainComp/>
 
@@ -72,8 +108,36 @@
   @use './style/main.scss' as *;
   
   .containerApp{
-    background-color: orange
+    background-color: #141414
   }
 
-
+  header{
+    #containerHeader{
+      height: 4rem;
+      background-color: #141414;
+      margin-bottom: 2rem;
+      div{
+        img{
+          height: 2rem;
+        }
+        nav{
+          ul{
+            list-style: none;
+            margin: 0 auto;
+            li{
+              margin: 0 1rem;
+              font-size: 0.8rem;
+              .selectedPage{
+                color: white;
+              }
+              a{
+                text-decoration: none;
+                color: rgb(197, 195, 195);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

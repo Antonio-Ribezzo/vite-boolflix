@@ -8,8 +8,8 @@
 <template>
     <!-- singola card -->
     <div class="card mb-3 mx-2">
-        <img :src="'https://image.tmdb.org/t/p/w300'+ infoFilm.poster_path" class="card-img-top" alt="...">
-        <div class="card-body">
+        <img :src="'https://image.tmdb.org/t/p/w342'+ infoFilm.poster_path" class="card-img-top" alt="...">
+        <!-- <div class="card-body">
             <h2 class="card-title">{{ infoFilm.title }}</h2>
             <span class="d-block text-decoration-underline">Film</span>
             <span class="card-text">
@@ -19,9 +19,9 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <span class="text-capitalize me-2">language:</span>
+                <span class="text-capitalize me-2">language:</span> -->
                 <!-- flag -->
-                <img v-if="infoFilm.original_language!== 'en'&& 
+                <!-- <img v-if="infoFilm.original_language!== 'en'&& 
                 infoFilm.original_language!== 'ja' &&
                 infoFilm.original_language!== 'hi' &&
                 infoFilm.original_language!== 'te' &&
@@ -39,9 +39,9 @@
                 <img v-if="infoFilm.original_language==='ko'" :src="'https://www.countryflagicons.com/FLAT/64/KR.png'">
             </li>
             <li class="list-group-item">
-                <span class="text-capitalize">vote:</span>
+                <span class="text-capitalize">vote:</span> -->
                 <!-- stelle -->
-                <div v-if="Math.round(infoFilm.vote_average) > 5" class="d-inline ms-2">
+                <!-- <div v-if="Math.round(infoFilm.vote_average) > 5" class="d-inline ms-2">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -96,7 +96,7 @@
                     <span class="ms-2">0</span>
                 </div>
             </li>
-        </ul>
+        </ul> -->
     </div>
 </template>
 
@@ -105,6 +105,9 @@
         width: 18rem;
         background-color: rgba(0, 0, 0, 0.275);
         border: none;
+        img{
+            max-height: 25rem;
+        }
         div{
             h2{
                 font-size: 1.3rem;

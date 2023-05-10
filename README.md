@@ -1,1 +1,1 @@
-# Template base Vite + Vue3
+# BoolFlix
