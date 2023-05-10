@@ -28,13 +28,13 @@
     methods: {
       activeApi(){
         if(store.searchText !== ''){
-          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=ebc03a47ce4ef95670ef8345f682ef5b&query=${store.searchText}`)
+          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${store.searchText}`)
           .then((res)=>{
             this.store.arrayFilm = res.data.results
             console.log(res.data.results)
           })
         } else{
-          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=ebc03a47ce4ef95670ef8345f682ef5b&query=marvel`)
+          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=marvel`)
           .then((res)=>{
             this.store.arrayFilm = res.data.results
           })
@@ -47,6 +47,7 @@
       
 <template>
   <div>
+    <!-- comonente search bar -->
     <SearchBarComp @search="activeApi"/>
     <!-- componente main -->
     <MainComp/>
@@ -59,6 +60,9 @@
 <style lang="scss">
   // importo il foglio di stile principale
   @use './style/main.scss' as *;
+  div{
+    background-color: orange
+  }
 
 
 </style>

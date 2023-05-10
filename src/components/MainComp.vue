@@ -20,11 +20,12 @@
 </script>
 
 <template>
+    <!-- area dove inserire le card -->
     <div class="px-5 d-flex flex-wrap justify-content-between align-items-start">
        <!-- inserisco il componente card -->
        <CardComp v-for="(el,i) in store.arrayFilm" 
        :key="i"
-       :arrayFilm="el"
+       :infoFilm="el"
        />
     </div>
 </template>
