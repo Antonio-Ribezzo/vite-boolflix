@@ -57,6 +57,13 @@
             this.store.arrayTvSeries = res.data.results
           })
         }
+      },
+      activeSearchBar(){
+        if(store.counterBool==false){
+            store.counterBool = true
+        }else{
+            store.counterBool = false
+        }
       }
     }
   }
@@ -69,7 +76,7 @@
     <header>
       <div id="containerHeader" class="d-flex justify-content-between align-items-center py-2 px-5">
         <!-- parte sinistra -->
-        <div class="d-flex justify-content-between align-items-center">
+        <div id="sxHeader" class="d-flex justify-content-between align-items-center">
             <img src="/img/logoBoolflix.png" alt="logo-BoolFlix">
             <!-- navbar -->
             <nav>
@@ -81,16 +88,15 @@
             </nav>
           </div>
 
-        <!-- parte destra -->
-        <div class="d-flex justify-content-between align-items-center text-white">
-          <!-- comonente search bar -->
-          <SearchBarComp @search="activeApi"/>
+          <!-- parte destra -->
+          <div id="dxHeader" class="d-flex justify-content-between align-items-center">
+            <!-- comonente search bar -->
+          <SearchBarComp @searchMov="activeApi"/>
+          <i class="fa-solid fa-magnifying-glass mx-2 p-2 rounded-circle" @click="activeSearchBar"></i>
           <span class="text-capitalize mx-2">bambini</span>
           <i class="fa-regular fa-bell mx-2"></i>
           <img class="mx-2" src="/img/accountNetflix.png" alt="">
           <i class="fa-solid fa-caret-down mx-2"></i>
-
-
         </div>
       </div>
     </header>
@@ -99,8 +105,6 @@
     <MainComp/>
 
   </div>
-
-  
 </template>
 
 <style lang="scss">
@@ -116,7 +120,7 @@
       height: 4rem;
       background-color: #141414;
       margin-bottom: 2rem;
-      div{
+      #sxHeader{
         img{
           height: 2rem;
         }
@@ -133,9 +137,28 @@
               a{
                 text-decoration: none;
                 color: rgb(197, 195, 195);
+                &:hover{
+                  color: white;
+                }
               }
             }
           }
+        }
+      }
+      #dxHeader{
+        color: rgb(197, 195, 195);
+        span,i{
+          &:hover{
+            color: white;
+            cursor: pointer;
+          }
+        }
+        i{
+          font-size: 1.2rem;
+        }
+        img{
+          height: 2rem;
+          cursor: pointer;
         }
       }
     }
