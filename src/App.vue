@@ -20,7 +20,7 @@
     data(){
       return{
         store,
-        navItem: [
+        navItem:[
           'Home',
           'Serie Tv',
           'Film',
@@ -66,6 +66,9 @@
         }else{
             store.counterBool = false
         }
+      },
+      changePage(i){
+        this.store.pageActive = i
       }
     }
   }
@@ -76,17 +79,17 @@
   <div class="containerApp">
     <!-- header -->
     <header>
-      <div id="containerHeader" class="d-flex justify-content-between align-items-center py-2 px-5">
+      <div id="containerHeader" class="d-flex justify-content-between align-items-center py-2 px-5 position-relative">
         <!-- parte sinistra -->
-        <div id="sxHeader" class="d-flex justify-content-between align-items-center">
-            <img src="/img/logoBoolflix.png" alt="logo-BoolFlix">
+        <img class="position-absolute" src="/img/logoBoolflix.png" alt="logo-BoolFlix">
+          <div id="sxHeader" class="d-flex justify-content-between align-items-center">
             <!-- navbar -->
             <nav>
-                <ul class="d-flex justify-content between align-items-center">
-                    <li v-for="(el,i) in navItem" :key="i" class="nav-item">
-                        <a :class="(i == 0)? 'selectedPage' : ''" :href="'/'+ el">{{el}}</a>
-                    </li>
-                </ul>
+                <div class="justify-content-between align-items-center">
+                    <a v-for="(el,i) in navItem" :key="i" class="col" href="#" :class="(i === store.pageActive)? 'text-white': ''" @click="changePage(i)">
+                        <span> {{ el }} </span>
+                    </a>
+                </div>
             </nav>
           </div>
 
@@ -129,23 +132,21 @@
       background: rgb(20,20,20);
       background: linear-gradient(0deg, rgba(20,20,20,0.742734593837535) 0%, rgba(20,20,20,1) 50%);
       margin-bottom: 2rem;
+      img{
+        height: 2rem;
+      }
       #sxHeader{
-        img{
-          height: 2rem;
-        }
+        margin-left: 8rem;
         nav{
-          ul{
+          div{
             list-style: none;
-            margin: 0 auto;
-            li{
+            // margin: 0 auto;
+            a{
+              cursor: pointer;
               margin: 0 1rem;
               font-size: 0.8rem;
-              .selectedPage{
-                color: white;
-              }
-              a{
-                text-decoration: none;
-                color: rgb(197, 195, 195);
+              color: rgb(197, 195, 195);
+              span{
                 &:hover{
                   color: white;
                 }

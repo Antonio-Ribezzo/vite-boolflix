@@ -6,5 +6,6 @@ export const store = reactive({
     arrayAllMovies: [],
     searchText:'',
     apiKey: 'ebc03a47ce4ef95670ef8345f682ef5b',
-    counterBool: false
+    counterBool: false,
+    pageActive:0,
 })
