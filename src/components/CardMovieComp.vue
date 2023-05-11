@@ -60,7 +60,7 @@
 
 <template>
     <!-- singola card -->
-    <div id="cardMovie" class="mb-3 mx-2 position-relative">
+    <div id="cardMovie" class="mb-3 position-relative">
         <img :src="getImage()" class="card-img-top" :alt="getTitle()">
         <!-- info Movie -->
         <div id="infoMovie" class="position-absolute d-flex flex-column justify-content-start align-items-start p-3 text-white border border-light">
