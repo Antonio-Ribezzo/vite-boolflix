@@ -60,45 +60,53 @@
 
 <template>
     <!-- singola card -->
-    <div class="card mb-3 mx-2">
+    <div id="cardMovie" class="mb-3 mx-2 position-relative">
         <img :src="getImage()" class="card-img-top" :alt="getTitle()">
-        <div class="card-body">
+        <!-- info Movie -->
+        <div id="infoMovie" class="position-absolute d-flex flex-column justify-content-start align-items-start p-3 text-white">
             <h2 class="card-title">{{ getTitle() }}</h2>
             <span class="d-block text-decoration-underline">{{getTvOrFilm()}}</span>
             <span class="card-text">
                 Titolo originale:
                 <span>{{ getTitle() }}</span>
             </span>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+            <div>
                 <span class="text-capitalize me-2">language:</span>
                 <!-- flag -->
-                <img :src="getFlag(infoMovie.original_language)" alt="">
-            </li>
-            <li class="list-group-item">
+                <img :src="getFlag(infoMovie.original_language)" :alt="infoMovie.original_language">
+            </div>
+            <!-- stelle -->
+            <div>
                 <span class="text-capitalize">vote:</span>
-                <!-- stelle -->
-                <div>
-                    <i v-for="n in 5" :class="(n <= getVote())? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
-                    <span class="ms-2">{{getVote()}}</span>
-                </div>
-            </li>
-        </ul>
+                <i v-for="n in 5" :class="(n <= getVote())? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+                <span class="ms-2">{{getVote()}}</span>
+            </div>
+            <!-- overview -->
+            <div class="overview">
+                <h3 class="text-capitalize mb-0 mt-2">overview:</h3>
+                <p>{{ infoMovie.overview }}</p>
+            </div>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-    .card{
+    #cardMovie{
+        height: 25rem;
         width: 18rem;
         background-color: rgba(0, 0, 0, 0.275);
         border: none;
         img{
-            max-height: 25rem;
+            max-height: 100%;
         }
-        div{
+        #infoMovie{
+            max-height: 100%;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
             h2{
-                font-size: 1.3rem;
+                font-size: 1.8rem;
             }
             span{
                 font-weight: 500;
@@ -106,15 +114,15 @@
                     font-style: italic;
                 }
             }
-        }
-        
-        ul{
-            border: none;
-            li{
-                background-color: rgba(0, 0, 0, 0.275);
-                border: none;
+            div{
                 img{
                     height: 2rem;
+                }
+            }
+            .overview{
+                overflow:auto;
+                h3{
+                    font-size: 1.3rem;
                 }
             }
         }
