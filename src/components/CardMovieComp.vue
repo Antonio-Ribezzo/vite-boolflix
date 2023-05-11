@@ -126,6 +126,17 @@
                 }
             }
             .overview{
+                &::-webkit-scrollbar {
+                    width: 0.3rem;  
+                }
+                &::-webkit-scrollbar-track {
+                    background: rgba(255, 255, 255, 0.30);        /* color of the tracking area */
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: rgb(88, 88, 105);    /* color of the scroll thumb */
+                    border-radius: 1rem;       /* roundness of the scroll thumb */
+                    border: 1px solid rgba(255, 255, 255, 0.30);  /* creates padding around scroll thumb */
+                }
                 overflow:auto;
                 h3{
                     font-size: 1.3rem;
