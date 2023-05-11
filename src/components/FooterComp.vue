@@ -27,24 +27,24 @@
     <footer class="py-5">
         <div class="container">
             <div class="text-white mb-4">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-youtube"></i>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
             <!-- nav footer -->
             <div id="navFooter" class="d-flex justify-content-between align-items-center mb-3">
                 <div>
-                    <span class="d-block" v-for="n in 3">{{ arrayFooterItems[n-1] }}</span>
+                    <a href=""><span class="d-block" v-for="n in 3">{{ arrayFooterItems[n-1] }}</span></a>
                 </div>
                 <div>
-                    <span class="d-block" v-for="n in 3">{{ arrayFooterItems[n+2] }}</span>
+                    <a href=""><span class="d-block" v-for="n in 3">{{ arrayFooterItems[n+2] }}</span></a>
                 </div>
                 <div>
-                    <span class="d-block" v-for="n in 3">{{ arrayFooterItems[n+5] }}</span>
+                    <a href=""><span class="d-block" v-for="n in 3">{{ arrayFooterItems[n+5] }}</span></a>
                 </div>
                 <div>
-                    <span class="d-block" v-for="n in 3">{{ arrayFooterItems[n+8] }}</span>
+                    <a href=""><span class="d-block" v-for="n in 3">{{ arrayFooterItems[n+8] }}</span></a>
                 </div>
             </div>
             <!-- button footer -->
@@ -59,25 +59,31 @@
 
 
 <style lang="scss" scoped>
+    @use '../style/main.scss';
 
     footer{
         // height: 10rem;
         background-color: #141414;
         .container{
             div{
-                i{
-                    font-size: 1.5rem;
-                    margin: 0 1.5rem 0 0;
+                a{
+                    color:white;
+                    i{
+                        font-size: 1.5rem;
+                        margin: 0 1.5rem 0 0;
+                    }
                 }
             }
             #navFooter{
                 div{
-                    span{
-                        margin-bottom: 1rem;
-                        font-size: 0.8rem;
-                        color: rgb(116, 113, 113);
-                        &:hover{
-                            color: white;
+                    a{
+                        span{
+                            margin-bottom: 1rem;
+                            font-size: 0.8rem;
+                            color: rgb(116, 113, 113);
+                            &:hover{
+                                color: white;
+                            }
                         }
                     }
                 }
