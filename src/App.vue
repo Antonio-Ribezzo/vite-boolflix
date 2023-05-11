@@ -6,6 +6,7 @@
   // importo i componenti
   import SearchBarComp from './components/SearchBarComp.vue';
   import MainComp from './components/MainComp.vue';
+  import FooterComp from './components/FooterComp.vue'
 
 
   export default{
@@ -13,6 +14,7 @@
     components:{
       SearchBarComp,
       MainComp,
+      FooterComp
     },
 
     data(){
@@ -82,7 +84,7 @@
             <nav>
                 <ul class="d-flex justify-content between align-items-center">
                     <li v-for="(el,i) in navItem" :key="i" class="nav-item">
-                        <a :class="(i == 0)? 'selectedPage' : ''" href="#">{{el}}</a>
+                        <a :class="(i == 0)? 'selectedPage' : ''" :href="'/'+ el">{{el}}</a>
                     </li>
                 </ul>
             </nav>
@@ -103,6 +105,9 @@
     
     <!-- componente main -->
     <MainComp/>
+
+    <!-- component footer -->
+    <FooterComp/>
 
   </div>
 </template>
