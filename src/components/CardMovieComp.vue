@@ -23,7 +23,7 @@
                 if(this.infoMovie.poster_path !== null){
                     return (`https://image.tmdb.org/t/p/w500${this.infoMovie.poster_path}`)
                 } else{
-                    return (`https://image.tmdb.org/t/p/w500/aoKycNwWL1elMO87loyinszXC4N.jpg`)
+                    return (`/img/noPoster.png`)
                 }
             },
             // bandiere
@@ -63,7 +63,7 @@
     <div id="cardMovie" class="mb-3 mx-2 position-relative">
         <img :src="getImage()" class="card-img-top" :alt="getTitle()">
         <!-- info Movie -->
-        <div id="infoMovie" class="position-absolute d-flex flex-column justify-content-start align-items-start p-3 text-white">
+        <div id="infoMovie" class="position-absolute d-flex flex-column justify-content-start align-items-start p-3 text-white border border-light">
             <h2 class="card-title">{{ getTitle() }}</h2>
             <span class="d-block text-decoration-underline">{{getTvOrFilm()}}</span>
             <span class="card-text">
@@ -71,14 +71,14 @@
                 <span>{{ getTitle() }}</span>
             </span>
             <div>
-                <span class="text-capitalize me-2">language:</span>
+                <span class="text-capitalize me-2">language: {{ (infoMovie.original_language).toUpperCase() }}</span>
                 <!-- flag -->
                 <img :src="getFlag(infoMovie.original_language)" :alt="infoMovie.original_language">
             </div>
-            <!-- stelle -->
+            <!-- stars -->
             <div>
-                <span class="text-capitalize">vote:</span>
-                <i v-for="n in 5" :class="(n <= getVote())? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+                <span class="text-capitalize me-2">vote:</span>
+                <i v-for="n in 5" :class="(n <= getVote())? 'fa-solid' : 'fa-regular'" class="fa-star text-warning"></i>
                 <span class="ms-2">{{getVote()}}</span>
             </div>
             <!-- overview -->
@@ -96,17 +96,23 @@
         width: 18rem;
         background-color: rgba(0, 0, 0, 0.275);
         border: none;
+        cursor: pointer;
         img{
             max-height: 100%;
         }
         #infoMovie{
+            background-color: rgba(0, 0, 0, 0.8);
             max-height: 100%;
             top: 0;
             bottom: 0;
             right: 0;
             left: 0;
+            opacity: 0;
+            &:hover{
+                opacity: 1;
+            }
             h2{
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             span{
                 font-weight: 500;

@@ -116,9 +116,13 @@
   }
 
   header{
+    position: sticky;
+    top: 0;
+    z-index: 9999999;
     #containerHeader{
       height: 4rem;
-      background-color: #141414;
+      background: rgb(20,20,20);
+      background: linear-gradient(0deg, rgba(20,20,20,0.742734593837535) 0%, rgba(20,20,20,1) 50%);
       margin-bottom: 2rem;
       #sxHeader{
         img{
