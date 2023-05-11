@@ -1,17 +1,14 @@
 <script>
     // importo il file store.js per poi renderlo disponibile dentro data()
     import {store} from '../store'
-    // importo il componente card film
-    import CardFilmComp from './CardFilmComp.vue';
-    // importo il componente card serie tv
-    import CardSeriesComp from './CardSeriesComp.vue';
+    // importo il componente singola card
+    import CardMovieComp from './CardMovieComp.vue';
 
     export default {
         name: 'MainComp',
 
         components:{
-            CardFilmComp,
-            CardSeriesComp
+            CardMovieComp,
         },
 
         data(){
@@ -26,17 +23,16 @@
     <!-- area dove inserire le card -->
     <div class="px-5 d-flex flex-wrap justify-content-between align-items-start">
         <!-- inserisco le card -->
-       
-        <!-- inserisco il componente card film -->
-        <CardFilmComp v-for="(el,i) in store.arrayFilm" 
+        <!-- FILM -->
+        <CardMovieComp
+        v-for="(el,i) in store.arrayFilm"
         :key="i"
-        :infoFilm="el"
-        />
-        <!-- inserisco il componente card serie tv -->
-        <CardSeriesComp v-for="(el,i) in store.arrayTvSeries" 
+        :infoMovie="el"/>
+        <!-- Serie Tv -->
+        <CardMovieComp
+        v-for="(el,i) in store.arrayTvSeries"
         :key="i"
-        :infoTvSeries="el"
-        />
+        :infoMovie="el"/>
     </div>
 </template>
 
