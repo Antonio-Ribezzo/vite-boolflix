@@ -21,7 +21,7 @@
 
 <template>
     <div :class="(store.counterBool)? 'd-flex':'d-none'">
-        <input class="form-control me-2" type="search" placeholder="Search Film/TV-Series" aria-label="Search" v-model="store.searchText">
+        <input @keyup.enter="$emit('searchMov')" class="form-control me-2" type="search" placeholder="Search Film/TV-Series" aria-label="Search" v-model="store.searchText">
         <button class="btn btn-outline-light" type="submit" @click="$emit('searchMov'), concat()">Search</button>
     </div>
 </template>

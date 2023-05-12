@@ -63,7 +63,7 @@
     <div id="cardMovie" class="mb-3 position-relative">
         <img :src="getImage()" class="card-img-top" :alt="getTitle()">
         <!-- info Movie -->
-        <div id="infoMovie" class="position-absolute d-flex flex-column justify-content-start align-items-start p-3 text-white border border-light">
+        <div id="infoMovie" class="position-absolute d-flex flex-column justify-content-start align-items-start text-white p-3 border border-light">
             <h2 class="card-title">{{ getTitle() }}</h2>
             <span class="d-block text-decoration-underline">{{getTvOrFilm()}}</span>
             <span class="card-text">
@@ -94,15 +94,17 @@
     #cardMovie{
         height: 25rem;
         width: 18rem;
-        background-color: rgba(0, 0, 0, 0.275);
+        background-color: rgb(20, 20, 20);
+        // background-color: rgba(0, 0, 0, 0.275);
         border: none;
         cursor: pointer;
         img{
-            max-height: 100%;
+            height: 100%;
         }
         #infoMovie{
             background-color: rgba(0, 0, 0, 0.8);
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             top: 0;
             bottom: 0;
             right: 0;
